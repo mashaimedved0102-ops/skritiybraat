@@ -345,13 +345,14 @@ async def on_delete(d: BusinessMessagesDeleted):
 
 # ---------- Webhook ----------
 
-@app.get("/")
-async def health():
+@app.get("/{path:path}")
+async def health(path: str = ""):
     return {"status": "ok"}
 
 
-@app.post("/api/webhook")
+@app.post("/{path:path}")
 async def webhook(
+    path: str,
     request: Request,
     x_telegram_bot_api_secret_token: str = Header(None),
 ):
