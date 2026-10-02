@@ -1,0 +1,3 @@
+fastapi
+aiogram>=3.7
+asyncpg
